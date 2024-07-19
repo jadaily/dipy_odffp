@@ -1,6 +1,6 @@
 '''
 Created on Feb 18, 2021
-
+Updated on Jul 19, 2024 by @jadaily
 @author: patrykfi
 '''
 
@@ -726,7 +726,7 @@ class OdffpModel(object):
             # Uses list comprehension to limit computations for peak_filters indices
             peak_filters = np.array([self._dict.peaks_per_voxel == peak_id for peak_id in range(max_peaks_num + 1)])
             peak_filters[~np.any(peak_filters, axis=1), self._dict.IDX_ISO] = True
-            peak_filters_indices = [np.where(peak_filters)[0] for peak_filter in peak_filters]
+            peak_filters_indices = [np.where(peak_filter)[0] for peak_filter in peak_filters]
 
 
             for peak_id in range(self._dict.max_peaks_num + 1):
